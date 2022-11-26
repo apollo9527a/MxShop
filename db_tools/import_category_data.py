@@ -4,10 +4,12 @@ __author__ = 'bobby'
 #独立使用django的model
 import sys
 import os
+import pathlib
 
 
 pwd = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(pwd+"../")
+sys.path.append(str(pathlib.Path().cwd()))
+print(sys.path)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "MxShop.settings")
 
 import django
