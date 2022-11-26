@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./extra_apps/djangoueditor3",
+        "./extra_apps"
+    ]
+}
