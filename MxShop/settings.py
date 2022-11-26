@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "users.UserProfile"
 
+MEDIA_ROOT = "media"
 
 # Application definition
 
