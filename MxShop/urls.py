@@ -24,9 +24,11 @@ from drf_yasg import openapi
 
 from goods.views import GoodsListViewSet
 from rest_framework.routers import DefaultRouter
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 
 router = DefaultRouter()
 router.register('goods', GoodsListViewSet)
+
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -51,4 +53,10 @@ urlpatterns = [
     re_path(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 
     re_path(r'^', include(router.urls))
+]
+
+urlpatterns += [
+    re_path(r'^api-token-auth/', obtain_jwt_token),
+    re_path(r'^api-token-refresh/', refresh_jwt_token),
+    re_path(r'^api-token-verify/', verify_jwt_token),
 ]
